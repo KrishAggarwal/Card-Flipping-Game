@@ -1,0 +1,361 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    color: white !important;
+    padding: 0;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    background-image: url("/Emojis/983286.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    width: 100%;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 10%;
+}
+
+.headingWrapper {
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    font-size: 24px;
+    color: white;
+}
+
+.empty {
+    width: 20%;
+}
+
+.heading {
+    width: 60%;
+
+    text-align: center;
+}
+
+.signOut {
+    width: 20%;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.heading h1,
+.heading h2 {
+    display: inline !important;
+}
+
+.l {
+    display: inline-block;
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.navbar {
+    height: 100%;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 90%;
+
+}
+input[type=date]:after{
+    color:white !important;
+}
+.statsWrapper {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.stats {
+    width: 80%;
+    margin: auto;
+    flex-direction: row;
+}
+
+.details {
+    width: 25%;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.details button {
+    width: 48%;
+    background: transparent;
+    color: white !important;
+    border: 2px solid white
+}
+
+.gameWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    padding: 20px 0;
+}
+
+/* .cardWrapper {
+    height: 95%;
+    max-width: 80%;
+    margin: auto;
+} */
+
+.innerEasy {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    perspective: 600px;
+    height: 530px;
+    width: 530px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffffff
+}
+
+.innerMedium {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    perspective: 600px;
+    height: 530px;
+    width: 530px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffffff
+}
+
+.innerHard {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr);
+    gap: .5rem;
+    perspective: 600px;
+    height: 550px;
+    width: 550px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffffff
+}
+
+/* 
+.cardWrapper {
+    height: 100%;
+    width: 100%;
+} */
+
+img {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(225deg, rgb(113, 196, 238) 0%, #250921 100%);
+}
+
+.frontImg {
+
+    background: rgb(216, 235, 255);
+}
+
+
+
+
+
+
+
+
+
+
+.card {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+}
+
+.card.isFlipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.matched img {
+    background: #250921;
+}
+
+
+.unmatched {
+    animation-name: unmatched;
+    animation-duration: .5s;
+}
+
+@keyframes unmatched {
+    0% {
+        transform: translateX(0px)
+    }
+
+    17% {
+        transform: translateX(-3px)
+    }
+
+    34% {
+        transform: translateX(3px)
+    }
+
+    51% {
+        transform: translateX(-3px)
+    }
+
+    68% {
+        transform: translateX(3px)
+    }
+
+    85% {
+        transform: translateX(-3px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+
+}
+
+.cardFace {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.reset {
+
+    border: 2px solid black;
+    width: fit-content;
+
+
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.reset:hover {
+    color: white;
+}
+
+.reset:active {
+    color: white;
+    outline: none;
+}
+
+/* .flip {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: rotateY(180deg)
+} */
+.back {
+    transform: rotateY(180deg);
+    border: 3px solid white;
+}
+
+.back h1 {
+    margin: auto;
+}
+
+@media screen and  (max-width:768px) {
+    .statsWrapper{
+        height:fit-content !important;
+    }
+    .gameWrapper{
+        width:100% !important;
+    height:90% !important;
+    padding:10px 0;
+    }
+   .stats{
+    width:100% !important;
+    height:100% !important;
+    vertical-align: middle;
+   }
+   
+   .details{
+    width:25%;
+    font-size:17px;
+    height:fit-content;
+    margin:auto;
+   }
+   .details button{
+    padding:0 !important;
+   }
+   .heading{
+    width:fit-content !important;
+   }
+   .signOut{
+    float:right;
+    
+    text-align: center;
+    width:30% !important;
+   }
+   .innerEasy {
+       display: grid !important;
+       grid-template-columns: repeat(4, 1fr);
+       gap: 0.5rem;
+       perspective: 600px;
+       height: 100%;
+       width: 100%;
+       padding: 10px;
+       background: rgba(255, 255, 255, 0.3);
+       border-radius: 10px;
+       box-shadow: 0 0 20px #ffffff
+   }
+}

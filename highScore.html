@@ -1,0 +1,115 @@
+
+<head>
+    <style>
+        .modal {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content {
+            border: none !important;
+            background: url('./Emojis/bgNewGameModal.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* color: white !important; */
+            border-radius: 6px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .table-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 90%;
+            border-radius: 10px;
+            padding:30px 10px;
+        }
+
+        table {
+            color: white !important;
+            background: transparent;
+            border: 3px solid white;
+            width: 90%;
+
+        }
+
+        td,
+        th {
+            text-align: center;
+            border: 3px solid white;
+        }
+
+        .btn {
+            border: 3px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: linear-gradient(180deg, rgb(59, 190, 255) 0%, #250921 100%);
+            color: white;
+        }
+        @media screen and (max-width: 576px) {
+            .table-wrapper,table{
+                width:100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="high-score-modal">
+    <div class="modal-header high-score-header">
+        <h1>High Scores</h1>
+    </div>
+    <div class="modal-body high-score-body">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stars</th>
+                        <th>Difficulty</th>
+                        <th>Attempts</th>
+                        <!-- <th>Details</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="items in highScores| orderBy:number">
+
+                        <td>{{items.name}}</td>
+                        <td><i ng-if="items.star1==true" class="fa-solid fa-star"></i>
+                            <i ng-if="items.star2==true" class="fa-solid fa-star"></i>
+                            <i ng-if="items.star3==true" class="fa-solid fa-star"></i>
+                        </td>
+                        <td>{{items.difficulty}}</td>
+                        <td>{{items.attempts}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer high-score-footer">
+        <button type="button" ng-click="newGameModal()" class="btn">New Game</button>
+        <!-- last played newDate -->
+
+    </div>
+</body>

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <style>
+        .modal {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            border: none !important;
+            background: url('./Emojis/bgNewGameModal.jpg') !important;
+            background-size: cover !important;
+            flex-direction: column;
+            background-repeat: no-repeat;
+            color: white !important;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align:center;
+
+        }
+.modal-header,.modal-body,.modal-footer{
+    width: 100%;
+}
+        button {
+            margin: auto 5px;
+            font-size: 16px !important;
+            font-weight: bold !important;
+        }
+
+        @media screen and (max-width:576px) {
+            .modal-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .won-modal {
+                width: 100% !important;
+            }
+
+            h2 {
+                font-size: 20px !important;
+            }
+
+            h3 {
+                font-size: 16px !important;
+                margin: auto;
+            }
+
+            .won-modal-footer {
+                width: 100% !important;
+            }
+
+            button {
+                margin:auto 5px;
+                float:right;
+                font-weight: none;
+                font-size:14px !important;
+                padding: 5px 10px !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./Card Flipping.css">
+</head>
+
+<body class="won-modal">
+    <div class="modal-header won-modal-header">
+        <h2 style="margin:0;">Congratulations!! You won.</h2>
+    </div>
+    <div class="won-modal-body modal-body">
+        <p style="margin:0;">
+        <h3 style="margin:0;">You took
+            <div>{{user.time}}</div> to complete the game in <div>{{user.attempts}} moves</div> and earned <div>
+                <i ng-if="user.star1==true" class="fa-solid fa-star"></i>
+                <i ng-if="user.star2==true" class="fa-solid fa-star"></i>
+                <i ng-if="user.star3==true" class="fa-solid fa-star"></i>
+            </div>
+        </h3>
+        </p>
+    </div>
+    <div class="modal-footer won-modal-footer">
+        <button type="button" ng-click="newGameModal()" class="btn"
+            style="background:linear-gradient(180deg, rgb(59, 190, 255) 0%, #250921 100%); color:white; border:2px solid white">Play
+            Again</button>
+        <button type="button" ng-click="cancelModal()" class="btn"
+            style="background:transparent; color:white; border:2px solid white">Close</button>
+    </div>
+</body>
+
+</html>

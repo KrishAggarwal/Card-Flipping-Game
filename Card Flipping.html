@@ -4,12 +4,81 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width" initial-scale="1.0" />
+    <title>Card Flipping Game</title>
+
+    <script src="https://kit.fontawesome.com/5a117b07b0.js" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <link href="Card Flipping.css" rel="stylesheet">
+    <script src="Card Flipping.js"></script>
 </head>
 
-<body>
-
+<body ng-app="myApp" ng-controller="defaultController">
+    <div class="container-fluid">
+        <!-- Header  -->
+        <div class="row header">
+            <div class="headingWrapper row">
+                <span class="empty"></span>
+                <!-- showHeading is true when user enter his details -->
+                <span class="heading" ng-if="showHeading">
+                    <h1>F<span class="l">L</span>IP</h1>
+                </span>
+                <span class="signOut" ng-if="showHeading" ng-click="newGameModal()"><i class="fa fa-sign-out" aria-hidden="true"></i> {{name}}</span>
+                 
+            </div>
+        </div>
+        <!-- main content starts here -->
+        <div class="main row ">
+            <!-- Shows stats of user like time stars  and also reset game button -->
+            <div class="statsWrapper row">
+                <div class="stats row">
+                    <div class="attempts details "><span>Attempts : {{attempts}}</span></div>
+                    <div class="stars details ">
+                        <i ng-if="star1==true" class="fa-solid fa-star"></i>
+                        <i ng-if="star2==true" class="fa-solid fa-star"></i>
+                        <i ng-if="star3==true" class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="timer details "><span>Time: {{minutes}}:{{seconds}}</span></div>
+                    <div class="details ">
+                        <button class="reset btn" type="reset" ng-click="reset()">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Grid wrapper stars here.. -->
+            <div class="gameWrapper row">
+                <!-- class for grids of 4x4 6x6 8x8 as easy medium hard respectively -->
+                <div ng-class="{'innerEasy':isEasy,'innerMedium':isMedium,'innerHard':isHard}">
+                    <div class="cardWrapper" ng-repeat="items in array ">
+                        <!-- track by $index|limitTo:limit -->
+                        <div class="card "
+                            ng-class="{'isFlipped':items.key,'matched':items.matched,'unmatched':items.unmatched}">
+                            <div class="cardFace front" ng-click="flipCard(items)">
+                                <img ng-src="{{items.front}}" class="frontImg" />
+                                
+                            </div>
+                            <div class="cardFace back">
+                                <!-- <img ng-src="{{items.back}}" class="backImg" /> -->
+                                <h1>{{items.textValue}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 
 </html>

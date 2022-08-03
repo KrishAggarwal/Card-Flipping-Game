@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <style>
+        .modal {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content {
+            border: none !important;
+            background: url('./Emojis/bgNewGameModal.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* color: white !important; */
+            border-radius: 6px;
+        }
+
+        .modal-header {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .modal-body {
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .form-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: fit-content;
+        }
+
+        .form-group {
+            width: 45% !important;
+        }
+
+        input {
+            background: rgba(0, 0, 0, .45) !important;
+            color: white !important;
+            outline: none;
+            border: none !important;
+        }
+
+        .level {
+            width: fit-content !important;
+            text-align: center;
+            background: rgba(0, 0, 0, .45) !important;
+            color: white !important;
+            padding: 6px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-top: 0;
+            margin-left: 20px;
+            margin-right: 5px;
+        }
+
+        input[type="radio"]:first-child {
+            margin-left: auto !important;
+        }
+
+        input:active {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+
+        .btn {
+            border: 3px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: linear-gradient(180deg, rgb(59, 190, 255) 0%, #250921 100%);
+            color: white;
+        }
+
+        
+    </style>
+</head>
+
+<body class="new-game-modal">
+    <div class="modal-header new-modal-header">
+        <h1 style="margin:0;">Welcome</h1>
+    </div>
+    <div class="modal-body new-modal-body">
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name" class="form-label ">Name :</label>
+                    <input type="text" class="form-control" id="name" name="name" ng-model="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="form-label">Date Of Birth:</label>
+                    <input type="date" class="form-control" name="date" id="date" ng-model="dateOfBirth" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group level">
+                    
+                    <input type="radio" ng-model="dimensions" value="Easy" class="levelOptions">(4 x 4)
+                    <input type="radio" ng-model="dimensions" value="Medium" class="levelOptions">(6 x 6)
+
+                    <input type="radio" ng-model="dimensions" value="Hard" class="levelOptions">(8 x 8)
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer new-modal-footer">
+        <button type="button" ng-click="gameBegin()" class="btn">Let's Begin</button>
+        <!-- last played newDate -->
+        <button type="button" ng-click="cancelModal()" class="btn">Close</button>
+    </div>
+
+</body>
+
+</html>
